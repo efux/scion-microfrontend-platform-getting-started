@@ -7,8 +7,6 @@ class ShoppingCartController {
     }
 
     public async init(): Promise<void> {
-        // TODO: Connect to the platform host
-
         // Render products added to the shopping cart
         ShoppingCartService.products$.subscribe(products => {
             const cartElement = document.querySelector('ul.cart');

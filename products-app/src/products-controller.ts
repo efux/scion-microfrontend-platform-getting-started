@@ -9,15 +9,12 @@ class ProductsController {
     ];
 
     public async init(): Promise<void> {
-        // TODO: Connect to the platform host
-
         // Render the products
         this.products.forEach(product => this.renderProduct(product));
     }
 
     private onAddToCart(product: Product): void {
         // Notify the shopping cart application when the user adds a product to the shopping cart
-        // TODO: Notify cart about new product.
     }
 
     private renderProduct(product: Product): void {
