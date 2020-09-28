@@ -1,3 +1,17 @@
 {
-  "name": "Host App"
+  "name": "Host App",
+  "intentions": [
+    {
+      "type": "navigation",
+      "qualifier": {
+        "screen": "products-overview"
+      }
+    },
+    {
+      "type": "action",
+      "qualifier": {
+        "entity": "toggle-shopping-cart"
+      }
+    }
+  ]
 }

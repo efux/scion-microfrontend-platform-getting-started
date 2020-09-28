@@ -1,3 +1,26 @@
 {
-  "name": "Shopping Cart App"
+  "name": "Shopping Cart App",
+  "capabilities": [
+    {
+      "type": "activator",
+      "private": false,
+      "properties": {
+        "path": "/activator.html"
+      }
+    },
+    {
+      "type": "action",
+      "qualifier": {
+        "entity": "toggle-shopping-cart"
+      },
+      "private": false
+    },
+    {
+      "type": "action",
+      "qualifier": {
+        "entity": "add-product"
+      },
+      "private": false
+    }
+  ]
 }

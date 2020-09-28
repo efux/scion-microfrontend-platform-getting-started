@@ -1,3 +1,28 @@
 {
-  "name": "Products App"
+  "name": "Products App",
+  "capabilities": [
+    {
+      "type": "activator",
+      "private": false,
+      "properties": {
+        "path": "activator.html",
+        "readinessTopics": ["products-ready"]
+      }
+    },
+    {
+      "type": "navigation",
+      "qualifier": {
+        "screen": "products-overview"
+      },
+      "private": false
+    }
+  ],
+  "intentions": [
+    {
+      "type": "action",
+      "qualifier": {
+        "entity": "add-product"
+      }
+    }
+  ]
 }

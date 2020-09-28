@@ -1,3 +1,5 @@
+import {Beans, MessageClient, MicrofrontendPlatform} from '@scion/microfrontend-platform';
+
 class ProductsController {
 
     private products: Product[] = [
@@ -9,12 +11,15 @@ class ProductsController {
     ];
 
     public async init(): Promise<void> {
+        await MicrofrontendPlatform.connectToHost({symbolicName: 'products-app'})
+
         // Render the products
         this.products.forEach(product => this.renderProduct(product));
     }
 
     private onAddToCart(product: Product): void {
         // Notify the shopping cart application when the user adds a product to the shopping cart
+        Beans.get(MessageClient).issueIntent({type: 'action', qualifier: {entity: 'add-product'}}, product);
     }
 
     private renderProduct(product: Product): void {
