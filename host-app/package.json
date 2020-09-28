@@ -1,8 +1,8 @@
 {
   "name": "host-app",
   "scripts": {
-    "start": "cpy src/*.json dist && parcel src/*.html --port 4200 --no-cache --open",
-    "build": "cpy src/*.json dist && parcel build src/*.html --no-cache",
+    "start": "parcel src/*.html --port 4200 --no-cache --open",
+    "build": "parcel build src/*.html --no-cache",
     "prebuild": "tsc --noEmit"
   },
   "dependencies": {
@@ -14,10 +14,14 @@
     "@types/node": "^12.12.50",
     "cpy-cli": "^3.1.1",
     "parcel": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.5.0",
     "sass": "^1.26.8",
     "typescript": "^3.9.5"
   },
   "browserslist": [
     "last 2 Chrome versions"
-  ]
+  ],
+  "staticFiles": {
+    "watcherGlob": "**"
+  }
 }
