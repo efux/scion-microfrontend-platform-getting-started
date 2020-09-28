@@ -1,37 +1,23 @@
-import { Beans, MessageClient, MicrofrontendPlatform, OutletRouter } from '@scion/microfrontend-platform';
-import { Product, ShoppingCartService } from './shopping-cart-service';
-
 class Activator {
 
-  private panelVisible: boolean;
+    private panelVisible: boolean;
 
-  public async init(): Promise<void> {
-    // Connect to the platform host
-    await MicrofrontendPlatform.connectToHost({symbolicName: 'shopping-cart-app'});
+    public async init(): Promise<void> {
+        // TODO: Connect to the platform host
 
-    // Listener to add a product to the shopping cart
-    Beans.get(MessageClient)
-      .onMessage$<Product>('shopping-cart/add-product')
-      .subscribe(msg => {
-        ShoppingCartService.addProduct(msg.body);
-        this.setShoppingCartPanelVisibility(true);
-      });
+        // TODO: Listener to add a product to the shopping cart
 
-    // Listener to open or close the shopping cart panel
-    Beans.get(MessageClient)
-      .onMessage$<Product>('shopping-cart/toggle-side-panel')
-      .subscribe(() => this.setShoppingCartPanelVisibility(!this.panelVisible));
-  }
-
-  public setShoppingCartPanelVisibility(visible: boolean): void {
-    this.panelVisible = visible;
-    if (visible) {
-      Beans.get(OutletRouter).navigate(`${window.location.origin}/shopping-cart.html`, {outlet: 'SHOPPING-CART'});
+        // TODO: Listener to open or close the shopping cart panel
     }
-    else {
-      Beans.get(OutletRouter).navigate(null, {outlet: 'SHOPPING-CART'});
+
+    public setShoppingCartPanelVisibility(visible: boolean): void {
+        this.panelVisible = visible;
+        if (visible) {
+            // TODO: Open cart
+        } else {
+            // TODO: Remove cart
+        }
     }
-  }
 }
 
 new Activator().init();
